@@ -2,10 +2,10 @@ name: Docker Build Main Push AWS Dev
 
 on:
   push:
-    # paths-ignore:
-    #   - 'docs/**'
-    #   - '**.md**'
-    # branches: [main]
+    paths-ignore:
+      - 'docs/**'
+      - '**.md**'
+    branches: [main]
   workflow_dispatch:
 
 jobs:
@@ -62,13 +62,13 @@ jobs:
           build-args: |
             BUILD=${{ github.sha }}
 
-      # - name: Download task definition | Update Task Definition | Update ECS Service | Deploy new image
-      #   env:
-      #     ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
-      #     ECR_REPOSITORY: ${{ secrets.ECR_REPOSITORY }}
-      #     IMAGE_TAG: ${{ github.sha }}
-      #   run: |
-      #     ./scripts/deploy-dev-aws.sh
+      - name: Download task definition | Update Task Definition | Update ECS Service | Deploy new image
+        env:
+          ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
+          ECR_REPOSITORY: ${{ secrets.ECR_REPOSITORY }}
+          IMAGE_TAG: ${{ github.sha }}
+        run: |
+          ./scripts/deploy-dev-aws.sh
 
   trivy-scan-image:
     needs: build-and-push-aws
