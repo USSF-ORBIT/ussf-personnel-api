@@ -10,7 +10,7 @@ export const resolvers = {
       const foundUserRow = worksheet
         .getColumn(enlistedUserColumns.DOD_ID)
         .values.indexOf(id);
-      if (foundUserRow) {
+      if (foundUserRow !== -1) {
         return {
           Grade: worksheet
             .getRow(foundUserRow)
@@ -57,6 +57,7 @@ export const resolvers = {
           Middle_Name: worksheet
             .getRow(foundUserRow)
             .getCell(enlistedUserColumns.Middle_Name).value,
+          userType: "Enlisted",
         };
       }
       return null;
@@ -68,7 +69,7 @@ export const resolvers = {
       const foundUserRow = worksheet
         .getColumn(officerUserColumns.DOD_ID)
         .values.indexOf(id);
-      if (foundUserRow) {
+      if (foundUserRow !== -1) {
         return {
           ANB2: worksheet.getRow(foundUserRow).getCell(officerUserColumns.ANB2)
             .value,
@@ -116,6 +117,7 @@ export const resolvers = {
           Middle_Name: worksheet
             .getRow(foundUserRow)
             .getCell(officerUserColumns.Middle_Name).value,
+          userType: "Officer",
         };
       }
       return null;
@@ -182,6 +184,7 @@ export const resolvers = {
           Middle_Name: officerWorksheet
             .getRow(foundOfficerUserRow)
             .getCell(officerUserColumns.Middle_Name).value,
+          userType: "Officer",
         };
       }
       // If not found in officer list, check enlisted list
@@ -242,6 +245,7 @@ export const resolvers = {
           Middle_Name: enlistedWorksheet
             .getRow(foundEnlistedUserRow)
             .getCell(enlistedUserColumns.Middle_Name).value,
+          userType: "Enlisted",
         };
       }
 
