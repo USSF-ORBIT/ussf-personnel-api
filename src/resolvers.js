@@ -5,7 +5,7 @@ export const resolvers = {
   Query: {
     getEnlistedUser: async (_, { id }) => {
       const workbook = new ExcelJS.Workbook();
-      await workbook.xlsx.readFile("./enlinv202304_Yu_v2.xlsx");
+      await workbook.xlsx.readFile("./spreadsheets/enlinv202304_Yu_v2.xlsx");
       const worksheet = workbook.getWorksheet("Enlinv 202304");
       const foundUserRow = worksheet
         .getColumn(enlistedUserColumns.DOD_ID)
@@ -64,7 +64,7 @@ export const resolvers = {
     },
     getOfficerUser: async (_, { id }) => {
       const workbook = new ExcelJS.Workbook();
-      await workbook.xlsx.readFile("./offinv202304_Yu_v2.xlsx");
+      await workbook.xlsx.readFile("./spreadsheets/offinv202304_Yu_v2.xlsx");
       const worksheet = workbook.getWorksheet("Offinv 202304");
       const foundUserRow = worksheet
         .getColumn(officerUserColumns.DOD_ID)
@@ -125,7 +125,7 @@ export const resolvers = {
     getUser: async (_, { id }) => {
       // First check officer list
       const officerWorkbook = new ExcelJS.Workbook();
-      await officerWorkbook.xlsx.readFile("./offinv202304_Yu_v2.xlsx");
+      await officerWorkbook.xlsx.readFile("./spreadsheets/offinv202304_Yu_v2.xlsx");
       const officerWorksheet = officerWorkbook.getWorksheet("Offinv 202304");
       const foundOfficerUserRow = officerWorksheet
         .getColumn(officerUserColumns.DOD_ID)
@@ -189,7 +189,7 @@ export const resolvers = {
       }
       // If not found in officer list, check enlisted list
       const enlistedWorkbook = new ExcelJS.Workbook();
-      await enlistedWorkbook.xlsx.readFile("./enlinv202304_Yu_v2.xlsx");
+      await enlistedWorkbook.xlsx.readFile("./spreadsheets/enlinv202304_Yu_v2.xlsx");
       const enlistedWorksheet = enlistedWorkbook.getWorksheet("Enlinv 202304");
       const foundEnlistedUserRow = enlistedWorksheet
         .getColumn(enlistedUserColumns.DOD_ID)

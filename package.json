@@ -9,5 +9,9 @@
     "graphql": "16.7.1",
     "graphql-tag": "2.12.6"
   },
+  "scripts": {
+    "start": "node index.js",
+    "start-docker": "docker build -t ussf-personnel-api . && docker run --rm -it -p 4000:4000 ussf-personnel-api"
+  },
   "type": "module"
 }
