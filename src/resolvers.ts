@@ -1,9 +1,9 @@
-import ExcelJS from "exceljs";
-import { enlistedUserColumns, officerUserColumns } from "./constants.js";
+import ExcelJS from "exceljs"
+import { enlistedUserColumns, officerUserColumns } from "./constants.js"
 
 export const resolvers = {
   Query: {
-    getEnlistedUser: async (_, { id }) => {
+    getEnlistedUser: async (_: any, { id }: { id: string }) => {
       const workbook = new ExcelJS.Workbook();
       await workbook.xlsx.readFile("./spreadsheets/enlinv202304_Yu_v2.xlsx");
       const worksheet = workbook.getWorksheet("Enlinv 202304");
@@ -62,7 +62,7 @@ export const resolvers = {
       }
       return null;
     },
-    getOfficerUser: async (_, { id }) => {
+    getOfficerUser: async (_: any, { id }: { id: string }) => {
       const workbook = new ExcelJS.Workbook();
       await workbook.xlsx.readFile("./spreadsheets/offinv202304_Yu_v2.xlsx");
       const worksheet = workbook.getWorksheet("Offinv 202304");
@@ -122,7 +122,7 @@ export const resolvers = {
       }
       return null;
     },
-    getUser: async (_, { id }) => {
+    getUser: async (_: any, { id }: { id: string }) => {
       // First check officer list
       const officerWorkbook = new ExcelJS.Workbook();
       await officerWorkbook.xlsx.readFile("./spreadsheets/offinv202304_Yu_v2.xlsx");
