@@ -36,3 +36,6 @@ export const officerUserColumns = {
   First_name: 35,
   Middle_Name: 36,
 }
+
+export const officerFilename = 'officer_personnel_data.xlsx'
+export const enlistedFilename = 'enlisted_personnel_data.xlsx'
