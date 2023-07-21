@@ -59,6 +59,7 @@ export const resolvers = {
             .getRow(foundUserRow)
             .getCell(enlistedUserColumns.Middle_Name).value,
           userType: "Enlisted",
+          lastModifiedAt: lastMod.toString(),
         };
       }
       return null;
@@ -243,6 +244,7 @@ export const resolvers = {
             .getRow(foundEnlistedUserRow)
             .getCell(enlistedUserColumns.Middle_Name).value,
           userType: "Enlisted",
+          lastModifiedAt: enlistedLastMod.toString(),
         };
       }
 
