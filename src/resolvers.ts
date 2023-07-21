@@ -3,9 +3,6 @@ import { getEnlistedWorksheet, getOfficerWorksheet } from "./helpers.js";
 
 export const resolvers = {
   Query: {
-    getSysInfo: async () => {
-      return process.env.S3_BUCKET_NAME
-    },
     getEnlistedUser: async (_: any, { id }: { id: string }) => {
       const { worksheet, lastModifiedAt: lastMod } = await getEnlistedWorksheet()
       const foundUserRow = worksheet
