@@ -1,8 +1,24 @@
+import { S3Client, ListObjectsV2Command } from "@aws-sdk/client-s3"
 import ExcelJS from "exceljs"
 import { enlistedUserColumns, officerUserColumns } from "./constants.js"
 
 export const resolvers = {
   Query: {
+    getSysInfo: async () => {
+      if (process.env.S3_BUCKET_NAME === 'test_bucket') {
+        // local mode
+        return 'local'
+      } else if (process.env.S3_BUCKET_NAME) {
+        // s3 mode
+        const s3client = new S3Client({ region: process.env.AWS_DEFAULT_REGION })
+        const data = await s3client.send(
+          new ListObjectsV2Command({ Bucket: process.env.S3_BUCKET_NAME })
+        )
+        return `s3: ${JSON.stringify(data)}`
+      } else {
+        return 'failed missing bucket name'
+      }
+    },
     getEnlistedUser: async (_: any, { id }: { id: string }) => {
       const workbook = new ExcelJS.Workbook();
       await workbook.xlsx.readFile("./spreadsheets/enlinv202304_Yu_v2.xlsx");

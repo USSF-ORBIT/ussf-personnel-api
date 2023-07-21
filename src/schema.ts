@@ -36,4 +36,8 @@ export const typeDefs = gql`
   type Query {
     getUser(id: String!): User
   }
+
+  type Query {
+    getSysInfo: String
+  }
 `;
