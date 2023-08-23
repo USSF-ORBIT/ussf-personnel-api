@@ -1,6 +1,4 @@
 node_modules/
-spreadsheets/enlinv202304_Yu_v2.xlsx
-spreadsheets/offinv202304_Yu_v2.xlsx
 .envrc.local
 .DS_Store
 dist/
