@@ -44,7 +44,7 @@ jobs:
           context: .
           push: false
           load: true
-          tags: ${{ secrets.C1_REGISTRY}}/${{ secrets.C1_REPOSITORY }}:paass-${{ github.sha }}
+          tags: ${{ secrets.C1_REGISTRY}}/${{ secrets.C1_REPOSITORY }}:${{ github.sha }}
           labels: ${{ steps.meta.outputs.labels }}
           build-args: |
             BUILD=${{ github.sha }}
@@ -59,13 +59,13 @@ jobs:
       - name: Push image to C1 Dev, Test, and Prod Artifactory
         id: push-c1-image
         env:
-          IMAGE_TAG: paass-${{ github.sha }}
+          IMAGE_TAG: ${{ github.sha }}
           C1_REGISTRY: ${{ secrets.C1_REGISTRY }}
           C1_REPOSITORY: ${{ secrets.C1_REPOSITORY }}
         run: |
           docker push $C1_REGISTRY/$C1_REPOSITORY:$IMAGE_TAG
-          docker tag $C1_REGISTRY/$C1_REPOSITORY:$IMAGE_TAG $C1_REGISTRY/dockerreadyfortest/portal/client:$IMAGE_TAG
-          docker push $C1_REGISTRY/dockerreadyfortest/portal/client:$IMAGE_TAG
-          docker tag $C1_REGISTRY/$C1_REPOSITORY:$IMAGE_TAG $C1_REGISTRY/dockerreadyforprod/portal/client:$IMAGE_TAG
-          docker push $C1_REGISTRY/dockerreadyforprod/portal/client:$IMAGE_TAG
+          docker tag $C1_REGISTRY/$C1_REPOSITORY:$IMAGE_TAG $C1_REGISTRY/dockerreadyfortest/portal/paass:$IMAGE_TAG
+          docker push $C1_REGISTRY/dockerreadyfortest/portal/paass:$IMAGE_TAG
+          docker tag $C1_REGISTRY/$C1_REPOSITORY:$IMAGE_TAG $C1_REGISTRY/dockerreadyforprod/portal/paass:$IMAGE_TAG
+          docker push $C1_REGISTRY/dockerreadyforprod/portal/paass:$IMAGE_TAG
           echo "image=$C1_REGISTRY/$C1_REPOSITORY:$IMAGE_TAG" >> $GITHUB_OUTPUT
