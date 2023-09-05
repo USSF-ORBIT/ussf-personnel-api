@@ -3,7 +3,7 @@ name: Docker Build Main Push C1 Artifactory
 on:
   release:
     types: [published]
-  push:
+  # push:
     # branches: [main]
   workflow_dispatch:
 
