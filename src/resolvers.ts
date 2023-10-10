@@ -249,10 +249,20 @@ export const resolvers = {
         });
       }
 
-      return [
+      const sortedArray = [
         ...officerGuardianDirectoryUsers,
         ...enlistedGuardianDirectoryUsers,
-      ];
+      ].sort((a, b) => {
+        if (a.Last_Name! < b.Last_Name!) {
+          return -1;
+        }
+        if (a.Last_Name! > b.Last_Name!) {
+          return 1;
+        }
+        return 0;
+      });
+
+      return sortedArray;
     },
   },
 };
