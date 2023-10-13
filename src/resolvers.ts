@@ -212,6 +212,7 @@ export const resolvers = {
       for (let i = 2; i < officerWorksheetValues.length; i++) {
         const officerUser = officerWorksheet.getRow(i);
         officerGuardianDirectoryUsers.push({
+          DOD_ID: officerUser.getCell(officerUserColumns.DOD_ID).value,
           First_name: officerUser.getCell(officerUserColumns.First_name).value,
           Middle_Name: officerUser.getCell(officerUserColumns.Middle_Name)
             .value,
@@ -232,6 +233,7 @@ export const resolvers = {
       for (let i = 2; i < enlistedWorksheetValues.length; i++) {
         const enlistedUser = enlistedWorksheet.getRow(i);
         enlistedGuardianDirectoryUsers.push({
+          DOD_ID: enlistedUser.getCell(officerUserColumns.DOD_ID).value,
           First_name: enlistedUser.getCell(enlistedUserColumns.First_name)
             .value,
           Middle_Name: enlistedUser.getCell(enlistedUserColumns.Middle_Name)

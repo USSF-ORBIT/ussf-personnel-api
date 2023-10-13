@@ -35,6 +35,7 @@ export const typeDefs = gql`
   }
 
   type GuardianDirectoryUser {
+    DOD_ID: String
     First_name: String
     Middle_Name: String
     Last_Name: String
@@ -49,17 +50,8 @@ export const typeDefs = gql`
 
   type Query {
     getEnlistedUser(id: String!): User
-  }
-
-  type Query {
     getOfficerUser(id: String!): User
-  }
-
-  type Query {
     getUser(id: String!): User
-  }
-
-  type Query {
     getGuardianDirectory: [GuardianDirectoryUser]
   }
 `;
