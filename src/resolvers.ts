@@ -29,22 +29,22 @@ export const resolvers = {
         return {
           Rank: getEnlistedRankFromGrade(grade),
           Grade: grade,
-          DUTYTITLE: foundUser.getCell(enlistedUserColumns.DUTYTITLE).value,
+          DutyTitle: foundUser.getCell(enlistedUserColumns.DUTYTITLE).value,
           AMU: foundUser.getCell(enlistedUserColumns.AMU).value,
           DOD_ID: foundUser.getCell(enlistedUserColumns.DOD_ID).value,
           ATP31: foundUser.getCell(enlistedUserColumns.ATP31).value,
           AFC291_01: foundUser.getCell(enlistedUserColumns.AFC291_01).value,
           AMF: foundUser.getCell(enlistedUserColumns.AMF).value,
           MPF: foundUser.getCell(enlistedUserColumns.MPF).value,
-          MAJCOM: foundUser.getCell(enlistedUserColumns.MAJCOM).value,
+          MajCom: foundUser.getCell(enlistedUserColumns.MAJCOM).value,
           Country: foundUser.getCell(enlistedUserColumns.Country).value,
-          BASE_LOC: foundUser.getCell(enlistedUserColumns.BASE_LOC).value,
-          Org_type: foundUser.getCell(enlistedUserColumns.Org_type).value,
+          BaseLoc: foundUser.getCell(enlistedUserColumns.BASE_LOC).value,
+          OrgType: foundUser.getCell(enlistedUserColumns.Org_type).value,
           EOPDate: foundUser.getCell(enlistedUserColumns.EOPDate).value,
-          Last_Name: foundUser.getCell(enlistedUserColumns.Last_Name).value,
-          First_name: foundUser.getCell(enlistedUserColumns.First_name).value,
-          Middle_Name: foundUser.getCell(enlistedUserColumns.Middle_Name).value,
-          userType: "Enlisted",
+          LastName: foundUser.getCell(enlistedUserColumns.Last_Name).value,
+          FirstName: foundUser.getCell(enlistedUserColumns.First_name).value,
+          MiddleName: foundUser.getCell(enlistedUserColumns.Middle_Name).value,
+          UserType: "Enlisted",
           lastModifiedAt: lastMod.toString(),
         };
       }
@@ -76,18 +76,18 @@ export const resolvers = {
           ATP31: foundUser.getCell(officerUserColumns.ATP31).value,
           CAS3: foundUser.getCell(officerUserColumns.CAS3).value,
           AMF: foundUser.getCell(officerUserColumns.AMF).value,
-          DUTYTITLE: foundUser.getCell(officerUserColumns.DUTYTITLE).value,
+          DutyTitle: foundUser.getCell(officerUserColumns.DUTYTITLE).value,
           MPF: foundUser.getCell(officerUserColumns.MPF).value,
           CMD: foundUser.getCell(officerUserColumns.CMD).value,
-          MAJCOM: foundUser.getCell(officerUserColumns.MAJCOM).value,
+          MajCom: foundUser.getCell(officerUserColumns.MAJCOM).value,
           Country: foundUser.getCell(officerUserColumns.Country).value,
-          BASE_LOC: foundUser.getCell(officerUserColumns.BASE_LOC).value,
-          org_kind: foundUser.getCell(officerUserColumns.org_kind).value,
+          BaseLoc: foundUser.getCell(officerUserColumns.BASE_LOC).value,
+          OrgKind: foundUser.getCell(officerUserColumns.org_kind).value,
           EOPDate: foundUser.getCell(officerUserColumns.EOPDate).value,
-          Last_Name: foundUser.getCell(officerUserColumns.Last_Name).value,
-          First_name: foundUser.getCell(officerUserColumns.First_name).value,
-          Middle_Name: foundUser.getCell(officerUserColumns.Middle_Name).value,
-          userType: "Officer",
+          LastName: foundUser.getCell(officerUserColumns.Last_Name).value,
+          FirstName: foundUser.getCell(officerUserColumns.First_name).value,
+          MiddleName: foundUser.getCell(officerUserColumns.Middle_Name).value,
+          UserType: "Officer",
           lastModifiedAt: lastMod.toString(),
         };
       }
@@ -120,20 +120,20 @@ export const resolvers = {
           ATP31: foundOfficerUser.getCell(officerUserColumns.ATP31).value,
           CAS3: foundOfficerUser.getCell(officerUserColumns.CAS3).value,
           AMF: foundOfficerUser.getCell(officerUserColumns.AMF).value,
-          DUTYTITLE: foundOfficerUser.getCell(officerUserColumns.DUTYTITLE)
+          DutyTitle: foundOfficerUser.getCell(officerUserColumns.DUTYTITLE)
             .value,
           MPF: foundOfficerUser.getCell(officerUserColumns.MPF).value,
           CMD: foundOfficerUser.getCell(officerUserColumns.CMD).value,
-          MAJCOM: foundOfficerUser.getCell(officerUserColumns.MAJCOM).value,
+          MajCom: foundOfficerUser.getCell(officerUserColumns.MAJCOM).value,
           Country: foundOfficerUser.getCell(officerUserColumns.Country).value,
-          BASE_LOC: foundOfficerUser.getCell(officerUserColumns.BASE_LOC).value,
-          org_kind: foundOfficerUser.getCell(officerUserColumns.org_kind).value,
+          BaseLoc: foundOfficerUser.getCell(officerUserColumns.BASE_LOC).value,
+          OrgKind: foundOfficerUser.getCell(officerUserColumns.org_kind).value,
           EOPDate: foundOfficerUser.getCell(officerUserColumns.EOPDate).value,
-          Last_Name: foundOfficerUser.getCell(officerUserColumns.Last_Name)
+          LastName: foundOfficerUser.getCell(officerUserColumns.Last_Name)
             .value,
-          First_name: foundOfficerUser.getCell(officerUserColumns.First_name)
+          FirstName: foundOfficerUser.getCell(officerUserColumns.First_name)
             .value,
-          Middle_Name: foundOfficerUser.getCell(officerUserColumns.Middle_Name)
+          MiddleName: foundOfficerUser.getCell(officerUserColumns.Middle_Name)
             .value,
           userType: "Officer",
           lastModifiedAt: officerLastMod.toString(),
@@ -213,15 +213,15 @@ export const resolvers = {
         const officerUser = officerWorksheet.getRow(i);
         officerGuardianDirectoryUsers.push({
           DOD_ID: officerUser.getCell(officerUserColumns.DOD_ID).value,
-          First_name: officerUser.getCell(officerUserColumns.First_name).value,
-          Middle_Name: officerUser.getCell(officerUserColumns.Middle_Name)
+          FirstName: officerUser.getCell(officerUserColumns.First_name).value,
+          MiddleName: officerUser.getCell(officerUserColumns.Middle_Name)
             .value,
-          Last_Name: officerUser.getCell(officerUserColumns.Last_Name).value,
+          LastName: officerUser.getCell(officerUserColumns.Last_Name).value,
           Email: officerUser.getCell(officerUserColumns.ATP31).value,
           Rank: getOfficerRankFromGrade(
             officerUser.getCell(officerUserColumns.Grade).value
           ),
-          Duty: officerUser.getCell(officerUserColumns.DUTYTITLE).value,
+          DutyTitle: officerUser.getCell(officerUserColumns.DUTYTITLE).value,
           BaseLoc: officerUser.getCell(officerUserColumns.BASE_LOC).value,
           MajCom: officerUser.getCell(officerUserColumns.MAJCOM).value,
           OrgType: officerUser.getCell(officerUserColumns.Org_type).value,
@@ -234,16 +234,16 @@ export const resolvers = {
         const enlistedUser = enlistedWorksheet.getRow(i);
         enlistedGuardianDirectoryUsers.push({
           DOD_ID: enlistedUser.getCell(enlistedUserColumns.DOD_ID).value,
-          First_name: enlistedUser.getCell(enlistedUserColumns.First_name)
+          FirstName: enlistedUser.getCell(enlistedUserColumns.First_name)
             .value,
-          Middle_Name: enlistedUser.getCell(enlistedUserColumns.Middle_Name)
+          MiddleName: enlistedUser.getCell(enlistedUserColumns.Middle_Name)
             .value,
-          Last_Name: enlistedUser.getCell(enlistedUserColumns.Last_Name).value,
+          LastName: enlistedUser.getCell(enlistedUserColumns.Last_Name).value,
           Email: enlistedUser.getCell(enlistedUserColumns.ATP31).value,
           Rank: getEnlistedRankFromGrade(
             enlistedUser.getCell(enlistedUserColumns.Grade).value
           ),
-          Duty: enlistedUser.getCell(enlistedUserColumns.DUTYTITLE).value,
+          DutyTitle: enlistedUser.getCell(enlistedUserColumns.DUTYTITLE).value,
           BaseLoc: enlistedUser.getCell(enlistedUserColumns.BASE_LOC).value,
           MajCom: enlistedUser.getCell(enlistedUserColumns.MAJCOM).value,
           OrgType: enlistedUser.getCell(enlistedUserColumns.Org_type).value,
@@ -255,10 +255,10 @@ export const resolvers = {
         ...officerGuardianDirectoryUsers,
         ...enlistedGuardianDirectoryUsers,
       ].sort((a, b) => {
-        if (a.Last_Name! < b.Last_Name!) {
+        if (a.LastName! < b.LastName!) {
           return -1;
         }
-        if (a.Last_Name! > b.Last_Name!) {
+        if (a.LastName! > b.LastName!) {
           return 1;
         }
         return 0;
