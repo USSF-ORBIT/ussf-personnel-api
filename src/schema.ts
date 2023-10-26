@@ -14,7 +14,6 @@ export const typeDefs = gql`
     DutyTitle: String
     AMU: String
     DOD_ID: String
-    ATP31: String
     AFC291_01: String
     AMF: String
     MPF: String
@@ -26,6 +25,7 @@ export const typeDefs = gql`
     LastName: String
     FirstName: String
     MiddleName: String
+    Email: String
     ANB2: String
     CAS3: String
     CMD: String
@@ -34,24 +34,10 @@ export const typeDefs = gql`
     lastModifiedAt: String
   }
 
-  type GuardianDirectoryUser {
-    DOD_ID: String
-    FirstName: String
-    MiddleName: String
-    LastName: String
-    Email: String
-    Rank: Rank
-    DutyTitle: String
-    BaseLoc: String
-    MajCom: String
-    OrgType: String
-    OrgKind: String
-  }
-
   type Query {
     getEnlistedUser(id: String!): User
     getOfficerUser(id: String!): User
     getUser(id: String!): User
-    getGuardianDirectory: [GuardianDirectoryUser]
+    getGuardianDirectory: [User]
   }
 `;
