@@ -135,7 +135,7 @@ export const resolvers = {
             .value,
           MiddleName: foundOfficerUser.getCell(officerUserColumns.Middle_Name)
             .value,
-          userType: "Officer",
+          UserType: "Officer",
           lastModifiedAt: officerLastMod.toString(),
         };
       }
@@ -162,7 +162,7 @@ export const resolvers = {
         return {
           Rank: getEnlistedRankFromGrade(grade),
           Grade: grade,
-          DUTYTITLE: foundEnlistedUser.getCell(enlistedUserColumns.DUTYTITLE)
+          DutyTitle: foundEnlistedUser.getCell(enlistedUserColumns.DUTYTITLE)
             .value,
           AMU: foundEnlistedUser.getCell(enlistedUserColumns.AMU).value,
           DOD_ID: foundEnlistedUser.getCell(enlistedUserColumns.DOD_ID).value,
@@ -171,21 +171,21 @@ export const resolvers = {
             .value,
           AMF: foundEnlistedUser.getCell(enlistedUserColumns.AMF).value,
           MPF: foundEnlistedUser.getCell(enlistedUserColumns.MPF).value,
-          MAJCOM: foundEnlistedUser.getCell(enlistedUserColumns.MAJCOM).value,
+          MajCom: foundEnlistedUser.getCell(enlistedUserColumns.MAJCOM).value,
           Country: foundEnlistedUser.getCell(enlistedUserColumns.Country).value,
-          BASE_LOC: foundEnlistedUser.getCell(enlistedUserColumns.BASE_LOC)
+          BaseLoc: foundEnlistedUser.getCell(enlistedUserColumns.BASE_LOC)
             .value,
-          Org_type: foundEnlistedUser.getCell(enlistedUserColumns.Org_type)
+          OrgType: foundEnlistedUser.getCell(enlistedUserColumns.Org_type)
             .value,
           EOPDate: foundEnlistedUser.getCell(enlistedUserColumns.EOPDate).value,
-          Last_Name: foundEnlistedUser.getCell(enlistedUserColumns.Last_Name)
+          LastName: foundEnlistedUser.getCell(enlistedUserColumns.Last_Name)
             .value,
-          First_name: foundEnlistedUser.getCell(enlistedUserColumns.First_name)
+          FirstName: foundEnlistedUser.getCell(enlistedUserColumns.First_name)
             .value,
-          Middle_Name: foundEnlistedUser.getCell(
+          MiddleName: foundEnlistedUser.getCell(
             enlistedUserColumns.Middle_Name
           ).value,
-          userType: "Enlisted",
+          UserType: "Enlisted",
           lastModifiedAt: enlistedLastMod.toString(),
         };
       }
