@@ -1,5 +1,5 @@
 # Uses the node base image with the latest LTS version
-FROM node:18.16.0-bullseye-slim AS builder
+FROM node:20.11.1-bookworm-slim AS builder
 # Informs Docker that the container listens on the 
 # specified network ports at runtime
 EXPOSE 4000
@@ -24,7 +24,7 @@ ENV BUILD_ID=${BUILD}
 # Command container will actually run when called
 CMD ["node", "./dist/index.js"]
 
-FROM gcr.io/distroless/nodejs18-debian11
+FROM gcr.io/distroless/nodejs20-debian11
 
 # Production mode
 ENV NODE_ENV=production
