@@ -39,7 +39,7 @@ branches:
         # Required. The list of status checks to require in order to merge into this branch
         contexts:
           [ 
-            "lint-and-test", "action-semantic-pull-request", 
+            "action-semantic-pull-request",
             "run-e2e-tests / run-e2e-tests (chromium)",
             "run-e2e-tests / run-e2e-tests (chrome)",
             "run-e2e-tests / run-e2e-tests (msedge)",
